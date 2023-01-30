@@ -1,0 +1,54 @@
+.container {
+  max-width: 600px;
+  background: linear-gradient(
+    178deg,
+    rgba(201, 234, 252, 0.51) 14.9%,
+    rgba(139, 192, 216, 0.73) 80%
+  );
+  padding: 15px;
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.search-button {
+  border-radius: 50%;
+  background: white;
+  border: white;
+  margin-right: 10px;
+}
+
+.search-button:hover {
+  background-color: floralwhite;
+  cursor: pointer;
+  transition: all 250ms linear;
+  color: white;
+}
+.fa-magnifying-glass {
+  color: black;
+  font-size: large;
+}
+
+.submit-button {
+  background: white;
+  color: black;
+  border: white;
+  margin-right: 10px;
+}
+
+.submit-button:hover {
+  background-color: floralwhite;
+  cursor: pointer;
+  border-color: grey;
+  transition: all 250ms linear;
+  color: white;
+}
+
+.daysOfWeek {
+  text-align: center;
+  padding: 20px;
+  font-size: large;
+}

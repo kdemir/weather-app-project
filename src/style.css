@@ -52,3 +52,11 @@ ul {
   padding: 20px;
   font-size: large;
 }
+
+footer {
+  text-align: center;
+}
+
+.github-link {
+  text-decoration: none;
+}

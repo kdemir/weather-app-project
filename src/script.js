@@ -23,6 +23,7 @@ function showTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
+  let descriptionElem = document.querySelector("#description");
 
   currentTemperature.innerHTML = temperature;
 
@@ -37,6 +38,7 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  descriptionElem.innerHTML = response.data.weather[0].description;
 }
 
 //function Changes the current city and temperature of the city

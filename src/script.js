@@ -50,5 +50,13 @@ function changeCity(event) {
   currentCity.innerHTML = city.value;
 }
 
+function search(city) {
+  let apiKey = "d6ee04fc6c97edbbcefb337782707ef1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
 let searchForCity = document.querySelector("#search-city-form");
 searchForCity.addEventListener("submit", changeCity);
+
+search("Berlin");

@@ -19,7 +19,24 @@ currentDateTime.innerHTML = `${day} ${hour}:${minute}`;
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemperature = document.querySelector("#current-temp");
+  let city = document.querySelector("#show-current-city");
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
+  let icon = document.querySelector("#icon");
+
   currentTemperature.innerHTML = temperature;
+
+  currentTemperature.innerHTML = Math.round(temperature);
+  city.innerHTML = response.data.name;
+
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed * 3.6);
+
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 //function Changes the current city and temperature of the city
@@ -35,24 +52,3 @@ function changeCity(event) {
 
 let searchForCity = document.querySelector("#search-city-form");
 searchForCity.addEventListener("submit", changeCity);
-
-//Bonus Feature: converting celsius into fahrenheit and fahrenheit into celsius
-
-// function convertToFahrenheit(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector("#current-temp");
-//   let fahrenheit = (currentTemperature * 9) / 5 + 32;
-//   return (currentTemperature.innerHTML = fahrenheit);
-// }
-
-// function convertToCelsius(event) {
-//   event.preventDefault();
-//   let currentTemperature = document.querySelector("#current-temp");
-//   let celsius = ((currentTemperature - 32) * 5) / 9;
-//   return (currentTemperature.innerHTML = celsius);
-// }
-// let celsius = document.querySelector("#celsius");
-// celsius.addEventListener("click", convertToCelsius(currentTemperature));
-
-// let fahrenheit = document.querySelector("#fahrenheit");
-// fahrenheit.addEventListener("click", convertToFahrenheit);

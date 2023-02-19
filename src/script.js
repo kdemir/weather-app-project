@@ -25,8 +25,9 @@ function showTemperature(response) {
   let icon = document.querySelector("#icon");
   let descriptionElem = document.querySelector("#description");
 
-  currentTemperature.innerHTML = temperature;
+  celsiusTemperature = response.data.main.temp;
 
+  currentTemperature.innerHTML = temperature;
   currentTemperature.innerHTML = Math.round(temperature);
   city.innerHTML = response.data.name;
 
@@ -62,3 +63,31 @@ let searchForCity = document.querySelector("#search-city-form");
 searchForCity.addEventListener("submit", changeCity);
 
 search("Berlin");
+
+function celsiusToFahrenheit(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-temp");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  currentTemp.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function fahrenheitToCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let currentTemp = document.querySelector("#current-temp");
+  currentTemp.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", celsiusToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", fahrenheitToCelsius);
+
+//Die Umwandlung von fahrenheit zu celsius und umgekehrt funktioniert noch nicht ganz. Nochmal Video anschauen und morgen
+//das Projekt zuende bringen!
